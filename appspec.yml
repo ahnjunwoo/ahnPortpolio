@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: /     
+    destination: /opt/tomcat-8.5.6/webapps/gProxyServer   
+hooks:
+  BeforeInstall: 
+     - location: scripts//stopTomcat.sh
+  AfterInstall:
+    - location: scripts/reStartTomcat.sh
+      timeout: 180
